@@ -6,7 +6,7 @@ function BookList() {
 
   useEffect(() => {
     const fetchBooks = async () => {
-      const response = await fetch('http://localhost:5127/api/Book/AllBooks');
+      const response = await fetch('https://localhost:5000/api/Book/AllBooks');
       const data = await response.json();
       setBooks(data);
     };
