@@ -2,3 +2,5 @@ node_modules/
 
 
 backend/Amazon.API/.vs/
+backend/Amazon.API/obj/
+

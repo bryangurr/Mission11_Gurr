@@ -15,7 +15,10 @@ namespace Amazon.API.Controllers
         [HttpGet("AllBooks")]
         public IEnumerable<Book> GetAllBooks()
         {
-            return _context.Books.ToList();
+            return _context.Books
+            .Skip(5)
+            .Take(10)
+            .ToList();
         }
 
         [HttpGet("GetBook/{id}")]
