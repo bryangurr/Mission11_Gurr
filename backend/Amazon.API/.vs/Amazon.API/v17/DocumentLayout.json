@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\bryan\\Box\\2025 Winter\\IS 413\\Mission11_Gurr\\backend\\Amazon.API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1787164D-A1B3-4361-A3CD-DDA6A65ED747}|Amazon.API.csproj|c:\\users\\bryan\\box\\2025 winter\\is 413\\mission11_gurr\\backend\\amazon.api\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1787164D-A1B3-4361-A3CD-DDA6A65ED747}|Amazon.API.csproj|solutionrelative:controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1787164D-A1B3-4361-A3CD-DDA6A65ED747}|Amazon.API.csproj|c:\\users\\bryan\\box\\2025 winter\\is 413\\mission11_gurr\\backend\\amazon.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1787164D-A1B3-4361-A3CD-DDA6A65ED747}|Amazon.API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1787164D-A1B3-4361-A3CD-DDA6A65ED747}|Amazon.API.csproj|c:\\users\\bryan\\box\\2025 winter\\is 413\\mission11_gurr\\backend\\amazon.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{1787164D-A1B3-4361-A3CD-DDA6A65ED747}|Amazon.API.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{1787164D-A1B3-4361-A3CD-DDA6A65ED747}|Amazon.API.csproj|c:\\users\\bryan\\box\\2025 winter\\is 413\\mission11_gurr\\backend\\amazon.api\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1787164D-A1B3-4361-A3CD-DDA6A65ED747}|Amazon.API.csproj|solutionrelative:controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1787164D-A1B3-4361-A3CD-DDA6A65ED747}|Amazon.API.csproj|c:\\users\\bryan\\box\\2025 winter\\is 413\\mission11_gurr\\backend\\amazon.api\\data\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1787164D-A1B3-4361-A3CD-DDA6A65ED747}|Amazon.API.csproj|solutionrelative:data\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1787164D-A1B3-4361-A3CD-DDA6A65ED747}|Amazon.API.csproj|c:\\users\\bryan\\box\\2025 winter\\is 413\\mission11_gurr\\backend\\amazon.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -21,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1787164D-A1B3-4361-A3CD-DDA6A65ED747}|Amazon.API.csproj|c:\\users\\bryan\\box\\2025 winter\\is 413\\mission11_gurr\\backend\\amazon.api\\data\\bookstoredbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1787164D-A1B3-4361-A3CD-DDA6A65ED747}|Amazon.API.csproj|solutionrelative:data\\bookstoredbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1787164D-A1B3-4361-A3CD-DDA6A65ED747}|Amazon.API.csproj|c:\\users\\bryan\\box\\2025 winter\\is 413\\mission11_gurr\\backend\\amazon.api\\data\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1787164D-A1B3-4361-A3CD-DDA6A65ED747}|Amazon.API.csproj|solutionrelative:data\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -45,43 +41,27 @@
               "Name": "ST:8:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\bryan\\Box\\2025 Winter\\IS 413\\Mission11_Gurr\\backend\\Amazon.API\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\bryan\\Box\\2025 Winter\\IS 413\\Mission11_Gurr\\backend\\Amazon.API\\Properties\\launchSettings.json",
-              "RelativeToolTip": "Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-18T03:39:04.061Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "BookController.cs",
               "DocumentMoniker": "C:\\Users\\bryan\\Box\\2025 Winter\\IS 413\\Mission11_Gurr\\backend\\Amazon.API\\Controllers\\BookController.cs",
               "RelativeDocumentMoniker": "Controllers\\BookController.cs",
               "ToolTip": "C:\\Users\\bryan\\Box\\2025 Winter\\IS 413\\Mission11_Gurr\\backend\\Amazon.API\\Controllers\\BookController.cs",
               "RelativeToolTip": "Controllers\\BookController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAA9AAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-17T20:57:45.967Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\bryan\\Box\\2025 Winter\\IS 413\\Mission11_Gurr\\backend\\Amazon.API\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\bryan\\Box\\2025 Winter\\IS 413\\Mission11_Gurr\\backend\\Amazon.API\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAowCQAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-17T20:53:02.468Z",
               "EditorCaption": ""
@@ -100,7 +80,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "Book.cs",
               "DocumentMoniker": "C:\\Users\\bryan\\Box\\2025 Winter\\IS 413\\Mission11_Gurr\\backend\\Amazon.API\\Data\\Book.cs",
               "RelativeDocumentMoniker": "Data\\Book.cs",
@@ -121,6 +101,10 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-03-17T20:35:43.049Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             }
           ]
         }
