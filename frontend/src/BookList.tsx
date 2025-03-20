@@ -8,11 +8,12 @@ function BookList() {
   const [totalItems, setTotalItems] = useState<number>(0);
   const [totalPages, setTotalPages] = useState<number>(0);
   const [orderBy, setOrder] = useState<string>('BookID');
+  const [sortDirection, setSortDirection] = useState<string>('asc');
 
   useEffect(() => {
     const fetchBooks = async () => {
       const response = await fetch(
-        `https://localhost:5000/api/Book/AllBooks?numRecords=${pageSize}&orderBy=${orderBy}&pageNum=${pageNum}`
+        `https://localhost:5000/api/Book/AllBooks?numRecords=${pageSize}&orderBy=${orderBy}&sortDirection=${sortDirection}&pageNum=${pageNum}`
       );
       const data = await response.json();
       setBooks(data.books);
@@ -41,6 +42,14 @@ function BookList() {
           <option value="Classification">Classification</option>
         </select>
       </label>
+      &emsp;{' '}
+      <button
+        onClick={() => {
+          setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+        }}
+      >
+        {sortDirection === 'asc' ? 'Ascending' : 'Descending'}
+      </button>
       <br />
       <br />
       {Books.map((b) => (
@@ -60,7 +69,6 @@ function BookList() {
         </div>
       ))}
       <br />
-
       <button disabled={pageNum === 1} onClick={() => setPageNum(pageNum - 1)}>
         Previous
       </button>
