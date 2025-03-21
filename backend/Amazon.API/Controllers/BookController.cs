@@ -16,12 +16,14 @@ namespace Amazon.API.Controllers
         [HttpGet("AllBooks")]
         public IActionResult GetAllBooks(int numRecords = 10, int pageNum = 1, string orderBy = "BookID")
         {
+            string? favClassification = Request.Cookies["FavoriteBookClassification"];
+            Console.WriteLine("---------Cookie---------");
+            Console.WriteLine("Favorite Classification: " + favClassification);
 
-            HttpContext.Response.Cookies.Append("FavoriteBookClassification", "Fiction", new CookieOptions
+            HttpContext.Response.Cookies.Append("FavoriteBookClassification", "Fiction", new CookieOptions()
             {
-                HttpOnly = true, // means that the cookie is not accessible via JavaScript, only to server
-                // generally best for security
-                Secure = true, // means that the cookie is only sent over HTTPS
+                HttpOnly = true, // means that the cookie is not accessible via JavaScript, only to server // generally best for security
+                Secure = false, // means that the cookie is only sent over HTTPS
                 SameSite = SameSiteMode.Strict, // means that the cookie is not sent with cross-site requests
                 Expires = DateTime.Now.AddMinutes(5) // means that the cookie will expire in 5 minutes
             });
