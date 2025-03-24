@@ -4,3 +4,5 @@ node_modules/
 backend/Amazon.API/.vs/
 backend/Amazon.API/obj/
 
+backend/Amazon.API/obj/Debug/net8.0/Amazon.API.AssemblyInfo.cs
+backend/Amazon.API/obj/Debug/net8.0/Amazon.API.AssemblyInfoInputs.cache
