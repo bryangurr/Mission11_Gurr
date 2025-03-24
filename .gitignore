@@ -1,4 +1,5 @@
 node_modules/
+
 backend/Amazon.API/.vs/Amazon.API/FileContentIndex/9f932276-ff9a-4d38-b5a3-fa95292b5adb.vsidx
 backend/Amazon.API/.vs/Amazon.API/FileContentIndex/6115b5e8-9b7b-4432-ae45-52c6da7420f7.vsidx
 backend/Amazon.API/.vs/Amazon.API/FileContentIndex/813515bc-8eca-4fb2-a7c7-79f70550bc3b.vsidx
@@ -7,5 +8,6 @@ backend/Amazon.API/obj/Debug/net8.0/Amazon.API.AssemblyInfo.cs
 backend/Amazon.API/obj/Debug/net8.0/Amazon.API.AssemblyInfoInputs.cache
 backend/Amazon.API/obj/Debug/net8.0/Amazon.API.assets.cache
 backend/Amazon.API/obj/Debug/net8.0/Amazon.API.GeneratedMSBuildEditorConfig.editorconfig
+
 backend/Amazon.API/obj/
 backend/Amazon.API/.vs
