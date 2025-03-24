@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Amazon.API.Data;
-    
+using Microsoft.EntityFrameworkCore;
+
 namespace Amazon.API.Controllers
 {
     [Route("api/[controller]")]
@@ -13,9 +14,29 @@ namespace Amazon.API.Controllers
         public BookController(BookstoreDBContext temp) => _context = temp;
 
         [HttpGet("AllBooks")]
-        public IEnumerable<Book> GetAllBooks()
+        public IActionResult GetAllBooks(int numRecords = 10, int pageNum = 1, string orderBy = "BookID")
         {
-            return _context.Books.ToList();
+            var booksQuery = _context.Books
+                .OrderBy(b => EF.Property<object>(b, orderBy));
+
+            var bookList = booksQuery
+            .Skip((pageNum - 1) * numRecords)
+            .Take(numRecords)
+            .ToList();
+
+            //bookList.OrderBy
+            //EF.Property<object>(bookList, orderBy);
+
+            var numBooks = _context.Books.Count();
+
+            var stuff = (new // object to hold booklist and total number of books 
+            {
+                Books = bookList,
+                TotalBooks = numBooks
+            });
+
+            return Ok(stuff);
+            
         }
 
         [HttpGet("GetBook/{id}")]
