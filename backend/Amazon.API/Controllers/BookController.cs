@@ -39,10 +39,23 @@ namespace Amazon.API.Controllers
             
         }
 
+
+
         [HttpGet("GetBook/{id}")]
         public IEnumerable<Book> GetBooksByClassification(string classification)
         {
             return _context.Books.Where(b => b.Classification.Contains(classification)).ToList();
         }
+
+        [HttpGet("GetBookCategories")]
+        public IActionResult GetBookCategories()
+        {
+            var categoryTypes = _context.Books
+                .Select(b => b.Category)
+                .Distinct()
+                .ToList();
+            return Ok(categoryTypes);
+        }
+
     }
 }
