@@ -7,3 +7,5 @@ backend/Amazon.API/obj/Debug/net8.0/Amazon.API.AssemblyInfo.cs
 backend/Amazon.API/obj/Debug/net8.0/Amazon.API.AssemblyInfoInputs.cache
 backend/Amazon.API/obj/Debug/net8.0/Amazon.API.assets.cache
 backend/Amazon.API/obj/Debug/net8.0/Amazon.API.GeneratedMSBuildEditorConfig.editorconfig
+backend/Amazon.API/obj/
+backend/Amazon.API/.vs
