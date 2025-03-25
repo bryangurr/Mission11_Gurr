@@ -61,7 +61,7 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
               <li>Price: {b.price}</li>
               <li>ISBN: {b.isbn}</li>
             </ul>
-            <button className="btn btn-info">Add to Cart</button>
+            <button className="btn btn-info">Buy</button>
           </div>
         </div>
       ))}
