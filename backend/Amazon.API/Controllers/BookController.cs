@@ -17,7 +17,6 @@ namespace Amazon.API.Controllers
         public IActionResult GetAllBooks(int numRecords = 10, int pageNum = 1, string orderBy = "BookID", [FromQuery] List<string>? bookCategories=null)
         {
             Console.WriteLine($"📢 Received categories: {string.Join(", ", bookCategories ?? new List<string>())}");
-            Console.WriteLine("________________________");
             var query = _context.Books.AsQueryable();
 
             if (bookCategories != null && bookCategories.Any())
