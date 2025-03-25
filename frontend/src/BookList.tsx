@@ -54,12 +54,12 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
           <h5>{b.author}</h5>
           <div className="card-body">
             <ul className="list-unstyled">
-              <li>{b.category}</li>
-              <li>{b.classification}</li>
-              <li>{b.pageCount}</li>
-              <li>{b.publisher}</li>
-              <li>{b.price}</li>
-              <li>{b.isbn}</li>
+              <li>Category: {b.category}</li>
+              <li>Classification: {b.classification}</li>
+              <li>Page count: {b.pageCount}</li>
+              <li>Publisher: {b.publisher}</li>
+              <li>Price: {b.price}</li>
+              <li>ISBN: {b.isbn}</li>
             </ul>
           </div>
         </div>
