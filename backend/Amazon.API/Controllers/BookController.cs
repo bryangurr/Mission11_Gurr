@@ -14,20 +14,31 @@ namespace Amazon.API.Controllers
         public BookController(BookstoreDBContext temp) => _context = temp;
 
         [HttpGet("AllBooks")]
-        public IActionResult GetAllBooks(int numRecords = 10, int pageNum = 1, string orderBy = "BookID")
+        public IActionResult GetAllBooks(int numRecords = 10, int pageNum = 1, string orderBy = "BookID", [FromQuery] List<string>? bookCategories=null)
         {
-            var booksQuery = _context.Books
+            Console.WriteLine($"📢 Received categories: {string.Join(", ", bookCategories ?? new List<string>())}");
+            Console.WriteLine("________________________");
+            var query = _context.Books.AsQueryable();
+
+            if (bookCategories != null && bookCategories.Any())
+            {
+                query = query.Where(b => bookCategories.Contains(b.Category));
+            }
+
+            var booksQuery = query
                 .OrderBy(b => EF.Property<object>(b, orderBy));
+
+            var numBooks = query.Count();
+
 
             var bookList = booksQuery
             .Skip((pageNum - 1) * numRecords)
             .Take(numRecords)
-            .ToList();
+            .ToList();  
 
             //bookList.OrderBy
             //EF.Property<object>(bookList, orderBy);
 
-            var numBooks = _context.Books.Count();
 
             var stuff = (new // object to hold booklist and total number of books 
             {

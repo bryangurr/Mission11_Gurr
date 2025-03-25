@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Book } from './types/Book';
 
-function BookList() {
+function BookList({ selectedCategories }: { selectedCategories: string[] }) {
   const [Books, setBooks] = useState<Book[]>([]);
   const [pageSize, setPageSize] = useState<number>(10);
   const [pageNum, setPageNum] = useState<number>(1);
@@ -11,8 +11,12 @@ function BookList() {
 
   useEffect(() => {
     const fetchBooks = async () => {
+      const categoryParams = selectedCategories
+        .map((cat) => `bookCategories=${encodeURIComponent(cat)}`)
+        .join('&');
+
       const response = await fetch(
-        `https://localhost:5000/api/Book/AllBooks?numRecords=${pageSize}&orderBy=${orderBy}&pageNum=${pageNum}`
+        `https://localhost:5000/api/Book/AllBooks?numRecords=${pageSize}&orderBy=${orderBy}&pageNum=${pageNum}${selectedCategories.length ? `&${categoryParams}` : ''}`
       );
       const data = await response.json();
       setBooks(data.books);
@@ -20,27 +24,28 @@ function BookList() {
       setTotalPages(Math.ceil(totalItems / pageSize));
     };
     fetchBooks();
-  }, [pageSize, pageNum, totalItems, orderBy]);
+  }, [pageSize, pageNum, totalItems, orderBy, selectedCategories]);
 
   return (
     <>
-      <h1>Books</h1>
-      <br />
-      <label>
-        Order by:&emsp;
-        <select
-          onChange={(o) => {
-            setOrder(o.target.value);
-            setPageNum(1);
-          }}
-        >
-          <option value="BookID">---Select---</option>
-          <option value="Title">Title</option>
-          <option value="Publisher">Publisher</option>
-          <option value="Category">Category</option>
-          <option value="Classification">Classification</option>
-        </select>
-      </label>
+      <div className="d-flex justify-content-end">
+        <label>
+          Order by:&emsp;
+          <select
+            onChange={(o) => {
+              setOrder(o.target.value);
+              setPageNum(1);
+            }}
+          >
+            <option value="BookID">---Select---</option>
+            <option value="Title">Title</option>
+            <option value="Publisher">Publisher</option>
+            <option value="Category">Category</option>
+            <option value="Classification">Classification</option>
+          </select>
+        </label>
+      </div>
+
       <br />
       <br />
       {Books.map((b) => (

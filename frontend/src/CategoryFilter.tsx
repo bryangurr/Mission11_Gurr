@@ -1,7 +1,13 @@
 import { useEffect, useState } from 'react';
 import './CategoryFilter.css';
 
-function CategoryFilter() {
+function CategoryFilter({
+  setSelectedCategories,
+  selectedCategories,
+}: {
+  selectedCategories: string[];
+  setSelectedCategories: (categories: string[]) => void;
+}) {
   const [catgories, setCategories] = useState<string[]>([]);
 
   useEffect(() => {
@@ -20,9 +26,17 @@ function CategoryFilter() {
     fetchCategories();
   }, []);
 
+  function handleCheckboxChange({ target }: { target: HTMLInputElement }) {
+    const updatedCategories = selectedCategories.includes(target.value)
+      ? selectedCategories.filter((c) => c !== target.value)
+      : [...selectedCategories, target.value];
+
+    setSelectedCategories(updatedCategories);
+  }
+
   return (
     <div className="category-filter">
-      <h5>Project types</h5>
+      <h5> Categories</h5>
       <div className="category-list">
         {catgories.map((c) => (
           <div key={c} className="category-item">
@@ -31,6 +45,7 @@ function CategoryFilter() {
               id={c}
               value={c}
               className="category-checkbox"
+              onChange={handleCheckboxChange}
             />
             <label htmlFor={c}>{c}</label>
           </div>
