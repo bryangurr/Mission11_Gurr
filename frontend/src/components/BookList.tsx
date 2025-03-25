@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Book } from './types/Book';
+import { Book } from '../types/Book';
 
 function BookList({ selectedCategories }: { selectedCategories: string[] }) {
   const [Books, setBooks] = useState<Book[]>([]);
@@ -61,6 +61,7 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
               <li>Price: {b.price}</li>
               <li>ISBN: {b.isbn}</li>
             </ul>
+            <button className="btn btn-info">Add to Cart</button>
           </div>
         </div>
       ))}

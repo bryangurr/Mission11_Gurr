@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import BookList from '../BookList';
-import CategoryFilter from '../CategoryFilter';
-import WelcomeHeader from '../WelcomeHeader';
+import BookList from '../components/BookList';
+import CategoryFilter from '../components/CategoryFilter';
+import WelcomeHeader from '../components/WelcomeHeader';
 
 function AllBooksPage() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
