@@ -16,7 +16,7 @@ namespace Amazon.API.Controllers
         [HttpGet("AllBooks")]
         public IActionResult GetAllBooks(int numRecords = 10, int pageNum = 1, string orderBy = "BookID", [FromQuery] List<string>? bookCategories=null)
         {
-            Console.WriteLine($"📢 Received categories: {string.Join(", ", bookCategories ?? new List<string>())}");
+            // Console.WriteLine($"📢 Received categories: {string.Join(", ", bookCategories ?? new List<string>())}");
             var query = _context.Books.AsQueryable();
 
             if (bookCategories != null && bookCategories.Any())
@@ -29,7 +29,6 @@ namespace Amazon.API.Controllers
 
             var numBooks = query.Count();
 
-
             var bookList = booksQuery
             .Skip((pageNum - 1) * numRecords)
             .Take(numRecords)
@@ -38,23 +37,22 @@ namespace Amazon.API.Controllers
             //bookList.OrderBy
             //EF.Property<object>(bookList, orderBy);
 
-
             var stuff = (new // object to hold booklist and total number of books 
             {
                 Books = bookList,
                 TotalBooks = numBooks
             });
 
-            return Ok(stuff);
-            
+            return Ok(stuff);            
         }
 
-
-
-        [HttpGet("GetBook/{id}")]
-        public IEnumerable<Book> GetBooksByClassification(string classification)
+        [HttpGet("GetBook")]
+        public IActionResult GetBooksByID(int bookID)
         {
-            return _context.Books.Where(b => b.Classification.Contains(classification)).ToList();
+            Console.WriteLine($"Fetching bookID {bookID}");
+            Console.WriteLine($"{bookID} found..........");
+            var book = _context.Books.FirstOrDefault(b => b.BookID == bookID);
+            return Ok(book);
         }
 
         [HttpGet("GetBookCategories")]
