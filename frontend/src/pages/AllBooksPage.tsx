@@ -2,12 +2,15 @@ import { useState } from 'react';
 import BookList from '../components/BookList';
 import CategoryFilter from '../components/CategoryFilter';
 import WelcomeHeader from '../components/WelcomeHeader';
+import CartSummary from '../components/CartSummary';
 
 function AllBooksPage() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
   return (
     <div className="container">
+      <CartSummary />
+
       <div className="row">
         <WelcomeHeader />
       </div>
