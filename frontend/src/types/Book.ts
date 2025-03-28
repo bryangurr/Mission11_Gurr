@@ -8,4 +8,5 @@ export interface Book {
   category: string;
   pageCount: number;
   price: number;
+  imageUrl: string;
 }

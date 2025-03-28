@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Book } from '../types/Book';
 import { useNavigate } from 'react-router-dom';
+import '../styles/bookList.css';
 
 function BookList({ selectedCategories }: { selectedCategories: string[] }) {
   const [Books, setBooks] = useState<Book[]>([]);
@@ -55,7 +56,16 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
           <h3 className="card-title">{b.title}</h3>
           <h5>{b.author}</h5>
           <div className="card-body">
-            <ul className="list-unstyled">
+            <img src={b.imageUrl} /> <br /> <br />
+            <button
+              className="btn btn-more-info dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              More Info
+            </button>
+            <ul className="dropdown-menu">
               <li>Category: {b.category}</li>
               <li>Classification: {b.classification}</li>
               <li>Page count: {b.pageCount}</li>
@@ -64,7 +74,7 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
               <li>ISBN: {b.isbn}</li>
             </ul>
             <button
-              className="btn btn-info"
+              className="btn btn-buy"
               onClick={() => navigate(`/purchase/${b.bookID}`)}
             >
               Buy
@@ -73,7 +83,34 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
         </div>
       ))}
       <br />
-
+      <div className="card">
+        <img src="gatsby.jpg" className="card-img-top" alt="The Great Gatsby" />
+        <div className="card-body">
+          <h5 className="card-title">The Great Gatsby</h5>
+          <button
+            className="btn btn-primary dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            More Info
+          </button>
+          <ul className="dropdown-menu">
+            <li>
+              <strong>Author:</strong> F. Scott Fitzgerald
+            </li>
+            <li>
+              <strong>Genre:</strong> Classic, Fiction
+            </li>
+            <li>
+              <strong>Price:</strong> $10.99
+            </li>
+            <li className="p-2">
+              <em>"A novel set in the Roaring Twenties."</em>
+            </li>
+          </ul>
+        </div>
+      </div>
       <button disabled={pageNum === 1} onClick={() => setPageNum(pageNum - 1)}>
         Previous
       </button>

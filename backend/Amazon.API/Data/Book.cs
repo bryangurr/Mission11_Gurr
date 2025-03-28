@@ -30,5 +30,7 @@ namespace Amazon.API.Data
 
         [Required] 
         public string Price { get; set; }
+
+        public string? ImageUrl {get; set;}
     }
 }

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import BookList from '../components/BookList';
 import CategoryFilter from '../components/CategoryFilter';
-import WelcomeHeader from '../components/WelcomeHeader';
+import SiteHeader from '../components/SiteHeader';
 import CartSummary from '../components/CartSummary';
 
 function AllBooksPage() {
@@ -12,7 +12,7 @@ function AllBooksPage() {
       <CartSummary />
 
       <div className="row">
-        <WelcomeHeader />
+        <SiteHeader />
       </div>
       <div className="row">
         <div className="col-md-3">
