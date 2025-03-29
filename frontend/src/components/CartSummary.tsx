@@ -14,7 +14,7 @@ const CartSummary = () => {
         position: 'fixed',
         top: '10px',
         right: '20px',
-        background: '#ccccff',
+        background: '#ddddff',
         padding: '10px 15px',
         borderRadius: '8px',
         cursor: 'pointer',

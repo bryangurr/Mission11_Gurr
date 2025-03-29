@@ -3,6 +3,7 @@ import { useCart } from '../context/CartContext';
 import { CartItem } from '../types/CartItem';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import SiteHeader from '../components/SiteHeader';
 
 function CartPage() {
   const navigate = useNavigate();
@@ -14,6 +15,8 @@ function CartPage() {
 
   return (
     <div>
+      <SiteHeader />
+
       <link
         rel="stylesheet"
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -44,15 +47,6 @@ function CartPage() {
               </tr>
             ))}
           </table>
-
-          // <ul>
-          //   {cart.map((item: CartItem) => (
-          //     <li key={item.bookID}>
-          //       {item.title} : {item.quantity}
-          //       <button onClick={() => removeFromCart(item.bookID)}>Remove</button>
-          //     </li>
-          //   ))}
-          // </ul>
         )}
       </div>
       <h3>Total: {totalPrice}</h3>
