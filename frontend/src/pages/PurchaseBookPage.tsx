@@ -1,5 +1,4 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import SiteHeader from '../components/SiteHeader';
 import { useEffect, useState } from 'react';
 import { Book } from '../types/Book';
 import { useCart } from '../context/CartContext';
@@ -42,7 +41,6 @@ function PurchaseBookPage() {
   return (
     <>
       <CartSummary />
-      <SiteHeader />
       <h2>Purchase {book?.title}</h2>
       <div>
         <h4>Author: {book?.author}</h4>

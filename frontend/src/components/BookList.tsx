@@ -3,10 +3,17 @@ import { Book } from '../types/Book';
 import { useNavigate } from 'react-router-dom';
 import '../styles/bookList.css';
 
-function BookList({ selectedCategories }: { selectedCategories: string[] }) {
+function BookList({
+  selectedCategories,
+  pageNum,
+  setPageNum,
+}: {
+  selectedCategories: string[];
+  pageNum: number;
+  setPageNum: (pageNum: number) => void; // Accept setPageNum as a prop
+}) {
   const [Books, setBooks] = useState<Book[]>([]);
   const [pageSize, setPageSize] = useState<number>(10);
-  const [pageNum, setPageNum] = useState<number>(1);
   const [totalItems, setTotalItems] = useState<number>(0);
   const [totalPages, setTotalPages] = useState<number>(0);
   const [orderBy, setOrder] = useState<string>('BookID');
@@ -25,6 +32,7 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
       setBooks(data.books);
       setTotalItems(data.totalBooks);
       setTotalPages(Math.ceil(totalItems / pageSize));
+      // setPageNum(1);
     };
     fetchBooks();
   }, [pageSize, pageNum, totalItems, orderBy, selectedCategories]);
@@ -83,34 +91,7 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
         </div>
       ))}
       <br />
-      <div className="card">
-        <img src="gatsby.jpg" className="card-img-top" alt="The Great Gatsby" />
-        <div className="card-body">
-          <h5 className="card-title">The Great Gatsby</h5>
-          <button
-            className="btn btn-primary dropdown-toggle"
-            type="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            More Info
-          </button>
-          <ul className="dropdown-menu">
-            <li>
-              <strong>Author:</strong> F. Scott Fitzgerald
-            </li>
-            <li>
-              <strong>Genre:</strong> Classic, Fiction
-            </li>
-            <li>
-              <strong>Price:</strong> $10.99
-            </li>
-            <li className="p-2">
-              <em>"A novel set in the Roaring Twenties."</em>
-            </li>
-          </ul>
-        </div>
-      </div>
+
       <button disabled={pageNum === 1} onClick={() => setPageNum(pageNum - 1)}>
         Previous
       </button>
@@ -139,6 +120,7 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
             const newSize = Number(p.target.value);
 
             setPageSize(Number(p.target.value));
+            // setPageNum(Math.ceil(((pageNum - 1) * oldSize + 1) / newSize));
             setPageNum(Math.ceil(((pageNum - 1) * oldSize + 1) / newSize));
           }}
         >

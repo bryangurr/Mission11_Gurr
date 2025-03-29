@@ -4,9 +4,11 @@ import './CategoryFilter.css';
 function CategoryFilter({
   setSelectedCategories,
   selectedCategories,
+  setPageNum,
 }: {
   selectedCategories: string[];
   setSelectedCategories: (categories: string[]) => void;
+  setPageNum: (pageNum: number) => void; // Define the setPageNum prop type
 }) {
   const [catgories, setCategories] = useState<string[]>([]);
 
@@ -32,6 +34,7 @@ function CategoryFilter({
       : [...selectedCategories, target.value];
 
     setSelectedCategories(updatedCategories);
+    setPageNum(1);
   }
 
   return (

@@ -1,7 +1,11 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 function SiteHeader() {
   return (
     <div>
-      <h1>Brigham's Bookstore</h1>
+      <header>
+        <h1>Brigham's Bookstore</h1>
+      </header>
     </div>
   );
 }

@@ -4,10 +4,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PurchaseBookPage from './pages/PurchaseBookPage';
 import CartPage from './pages/CartPage';
 import { CartProvider } from './context/CartContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 function App() {
   return (
     <>
+
       <CartProvider>
         <Router>
           <Routes>
