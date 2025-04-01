@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Book } from '../types/Book';
 import { fetchBooks } from '../api/BooksAPI';
+import Pagination from '../components/Pagination';
 
 const AdminBooksPage = () => {
   const [Books, setBooks] = useState<Book[]>([]);
@@ -31,7 +32,7 @@ const AdminBooksPage = () => {
   return (
     <div>
       <h1>Books - Admin</h1>
-      <table>
+      <table className="table">
         <thead>
           <tr>
             <th>ID</th>
@@ -70,6 +71,16 @@ const AdminBooksPage = () => {
           ))}
         </tbody>
       </table>
+      {/* <Pagination
+        currentPage={pageNum}
+        totalPages={totalPages}
+        pageSize={pageSize}
+        onPageChange={setPageNum}
+        onPageSizeChange={(newSize: SetStateAction<number>) => {
+          setPageSize(newSize);
+          setPageNum(1);
+        }}
+      /> */}
     </div>
   );
 };
