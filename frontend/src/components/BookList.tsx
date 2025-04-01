@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Book } from '../types/Book';
 import { useNavigate } from 'react-router-dom';
 import '../styles/bookList.css';
+import { fetchBooks } from '../api/BooksAPI';
 
 function BookList({
   selectedCategories,
@@ -14,28 +15,38 @@ function BookList({
 }) {
   const [Books, setBooks] = useState<Book[]>([]);
   const [pageSize, setPageSize] = useState<number>(10);
-  const [totalItems, setTotalItems] = useState<number>(0);
   const [totalPages, setTotalPages] = useState<number>(0);
   const [orderBy, setOrder] = useState<string>('BookID');
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchBooks = async () => {
-      const categoryParams = selectedCategories
-        .map((cat) => `bookCategories=${encodeURIComponent(cat)}`)
-        .join('&');
+    const loadBooks = async () => {
+      try {
+        setLoading(true);
+        const data = await fetchBooks(
+          pageSize,
+          pageNum,
+          orderBy,
+          selectedCategories
+        );
 
-      const response = await fetch(
-        `https://localhost:5000/api/Book/AllBooks?numRecords=${pageSize}&orderBy=${orderBy}&pageNum=${pageNum}${selectedCategories.length ? `&${categoryParams}` : ''}`
-      );
-      const data = await response.json();
-      setBooks(data.books);
-      setTotalItems(data.totalBooks);
-      setTotalPages(Math.ceil(totalItems / pageSize));
+        setBooks(data.books);
+        setTotalPages(Math.ceil(data.totalBooks / pageSize));
+      } catch (error) {
+        setError((error as Error).message);
+      } finally {
+        setLoading(false);
+      }
       // setPageNum(1);
     };
-    fetchBooks();
-  }, [pageSize, pageNum, totalItems, orderBy, selectedCategories]);
+    loadBooks();
+  }, [pageSize, pageNum, orderBy, selectedCategories]);
+
+  if (loading) return <p>Loading books...</p>;
+
+  if (error) return <p className="text-red-500">Error: {error}</p>;
 
   return (
     <>
