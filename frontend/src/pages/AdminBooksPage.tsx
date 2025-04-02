@@ -8,6 +8,8 @@ const AdminBooksPage = () => {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
+  const [pageNum, setPageNum] = useState<number>(1);
+
   const [pageSize, setPageSize] = useState<number>(10);
   const [totalPages, setTotalPages] = useState<number>(0);
   const [orderBy, setOrder] = useState<string>('BookID');
@@ -15,8 +17,9 @@ const AdminBooksPage = () => {
   useEffect(() => {
     const loadBooks = async () => {
       try {
-        const data = await fetchBooks(pageSize, 1, orderBy, []);
+        const data = await fetchBooks(pageSize, pageNum, orderBy, []);
         setBooks(data.books);
+        setTotalPages(Math.ceil(data.totalBooks / pageSize));
       } catch (err) {
         setError((err as Error).message);
       } finally {
@@ -24,7 +27,7 @@ const AdminBooksPage = () => {
       }
     };
     loadBooks();
-  }, []);
+  }, [pageSize, pageNum]);
 
   if (loading) return <p>Loading books...</p>;
   if (error) return <p className="text-red-500">Error: {error}</p>;
@@ -32,8 +35,8 @@ const AdminBooksPage = () => {
   return (
     <div>
       <h1>Books - Admin</h1>
-      <table className="table">
-        <thead>
+      <table className="table table-hover table-striped">
+        <thead className="table-dark">
           <tr>
             <th>ID</th>
             <th>Title</th>
@@ -60,10 +63,16 @@ const AdminBooksPage = () => {
               <td>{b.pageCount}</td>
               <td>{b.price}</td>
               <td>
-                <button onClick={() => console.log('Edit button clicked')}>
+                <button
+                  onClick={() => console.log('Edit button clicked')}
+                  className="btn btn-primary btn-sm w-100 mb-1"
+                >
                   Edit
                 </button>
-                <button onClick={() => console.log('Delete button clicked')}>
+                <button
+                  onClick={() => console.log('Delete button clicked')}
+                  className="btn btn-danger btn-sm w-100"
+                >
                   Delete
                 </button>
               </td>
@@ -71,16 +80,16 @@ const AdminBooksPage = () => {
           ))}
         </tbody>
       </table>
-      {/* <Pagination
+      <Pagination
         currentPage={pageNum}
         totalPages={totalPages}
         pageSize={pageSize}
         onPageChange={setPageNum}
-        onPageSizeChange={(newSize: SetStateAction<number>) => {
+        onPageSizeChange={(newSize) => {
           setPageSize(newSize);
           setPageNum(1);
         }}
-      /> */}
+      />
     </div>
   );
 };
