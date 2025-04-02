@@ -65,5 +65,43 @@ namespace Amazon.API.Controllers
             return Ok(categoryTypes);
         }
 
+        [HttpPost("Add")]
+        public IActionResult AddBook([FromBody] Book newBook){
+            _context.Books.Add(newBook);
+            _context.SaveChanges();
+            return ok(newBook);
+        }
+
+
+        [HttpPut("UpdateBook/{bookID}")]
+        public IActionResult UpdateBook(int bookID, [FromBody] Book updatedBook) {
+            var existingBook = _context.Find(bookID);
+
+            existingBook.Title = updatedBook.Title;
+            existingBook.Author = updatedBook.Author;
+            existingBook.Publisher = updatedBook.Publisher;
+            existingBook.ISBN = updatedBook.ISBN;
+            existingBook.Classification = updatedBook.Classification;
+            existingBook.Category = updatedBook.Category;
+            existingBook.PageCount = updatedBook.PageCount;
+            existingBook.Price = updatedBook.Price;
+            existingBook.ImageUrl = updatedBook.ImageUrl;
+
+            _context.Books.Update(existingBook);
+            _context.SaveChanges();
+
+            return Ok(existingBook)
+        }
+
+        [HttpDelete("DeleteBook/{BookID}")]
+        public IActionResult DeleteBook (int BookID) {
+            var book = _context.Books.Find(BookID);
+            if (book == null) {
+                return NotFound(new {message="Book not found :("});
+            }
+            _context.Books.Remove(book);
+            return NoContent();
+        }
+
     }
 }
