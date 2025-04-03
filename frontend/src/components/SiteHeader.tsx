@@ -6,6 +6,7 @@ function SiteHeader() {
       <header>
         <h1>Brigham's Bookstore</h1>
       </header>
+      <br />
     </div>
   );
 }
