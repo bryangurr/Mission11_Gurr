@@ -29,7 +29,7 @@ function PurchaseBookPage() {
   useEffect(() => {
     const fetchBook = async () => {
       const response = await fetch(
-        `https://localhost:5000/api/Book/GetBook?bookID=${Number(bookID)}`
+        `https://bookstore-gurr-api-bebeh3d9gafbbsbp.eastus-01.azurewebsites.net/api/Book/GetBook?bookID=${Number(bookID)}`
       );
       const data = await response.json();
       setBook(data);
