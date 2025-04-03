@@ -6,7 +6,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import SiteHeader from '../components/SiteHeader';
 
 function CartPage() {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Add comment to see if it changes anything
   const { cart } = useCart(); // , removeFromCart <-- pulled out of braces
   const totalPrice = cart.reduce(
     (sum, item) => sum + item.price * item.quantity,
