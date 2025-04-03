@@ -100,6 +100,7 @@ namespace Amazon.API.Controllers
                 return NotFound(new {message="Book not found :("});
             }
             _context.Books.Remove(book);
+            _context.SaveChanges();
             return NoContent();
         }
 
