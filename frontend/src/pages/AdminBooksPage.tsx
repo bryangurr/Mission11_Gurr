@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Book } from '../types/Book';
 import { fetchBooks } from '../api/BooksAPI';
 import Pagination from '../components/Pagination';
+import NewBookForm from '../components/NewBookForm';
 
 const AdminBooksPage = () => {
   const [Books, setBooks] = useState<Book[]>([]);
@@ -13,6 +14,7 @@ const AdminBooksPage = () => {
   const [pageSize, setPageSize] = useState<number>(10);
   const [totalPages, setTotalPages] = useState<number>(0);
   const [orderBy, setOrder] = useState<string>('BookID');
+  const [showForm, setShowForm] = useState<boolean>(false);
 
   useEffect(() => {
     const loadBooks = async () => {
@@ -35,6 +37,28 @@ const AdminBooksPage = () => {
   return (
     <div>
       <h1>Books - Admin</h1>
+
+      {!showForm && (
+        <button
+          className="btn btn-success mb-3"
+          onClick={() => setShowForm(true)}
+        >
+          Add Book
+        </button>
+      )}
+
+      {showForm && (
+        <NewBookForm
+          onSuccess={() => {
+            setShowForm(false);
+            fetchBooks(pageSize, pageNum, orderBy, []).then((data) =>
+              setBooks(data.books)
+            );
+          }}
+          onCancel={() => setShowForm(false)}
+        />
+      )}
+
       <table className="table table-hover table-striped">
         <thead className="table-dark">
           <tr>

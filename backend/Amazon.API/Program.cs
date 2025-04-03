@@ -15,7 +15,13 @@ builder.Services.AddDbContext<BookstoreDBContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("BookstoreConnection"));
 });
 
-builder.Services.AddCors(); // Necessary for webpage to be able to access the API
+builder.Services.AddCors(options => 
+    options.AddPolicy ("AllowReactApp", 
+        policy => {
+            policy.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+})); // Necessary for webpage to be able to access the API
 
 var app = builder.Build();
 
@@ -26,10 +32,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors(options =>
-{
-    options.WithOrigins("http://localhost:5173");
-});
+app.UseCors("AllowReactApp");
 
 app.UseHttpsRedirection();
 

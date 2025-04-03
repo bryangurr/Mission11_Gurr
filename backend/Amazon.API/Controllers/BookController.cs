@@ -65,17 +65,17 @@ namespace Amazon.API.Controllers
             return Ok(categoryTypes);
         }
 
-        [HttpPost("Add")]
-        public IActionResult AddBook([FromBody] Book newBook){
+        [HttpPost("AddBook")]
+        public IActionResult addBook([FromBody] Book newBook){
             _context.Books.Add(newBook);
             _context.SaveChanges();
-            return ok(newBook);
+            return Ok(newBook);
         }
 
 
         [HttpPut("UpdateBook/{bookID}")]
         public IActionResult UpdateBook(int bookID, [FromBody] Book updatedBook) {
-            var existingBook = _context.Find(bookID);
+            var existingBook = _context.Books.Find(bookID);
 
             existingBook.Title = updatedBook.Title;
             existingBook.Author = updatedBook.Author;
@@ -90,7 +90,7 @@ namespace Amazon.API.Controllers
             _context.Books.Update(existingBook);
             _context.SaveChanges();
 
-            return Ok(existingBook)
+            return Ok(existingBook);
         }
 
         [HttpDelete("DeleteBook/{BookID}")]
