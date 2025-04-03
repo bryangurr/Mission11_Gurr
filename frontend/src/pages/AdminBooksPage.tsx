@@ -39,6 +39,7 @@ const AdminBooksPage = () => {
     try {
       await DeleteBook(bookID);
       setBooks(Books.filter((b) => b.bookID !== bookID));
+      setOrder('bookID')
     } catch (error) {
       alert(`Error: ${error} \nFailed to delete book. Please try again.`);
     }

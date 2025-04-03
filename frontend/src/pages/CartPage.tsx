@@ -7,7 +7,7 @@ import SiteHeader from '../components/SiteHeader';
 
 function CartPage() {
   const navigate = useNavigate();
-  const { cart, removeFromCart } = useCart();
+  const { cart } = useCart(); // , removeFromCart <-- pulled out of braces
   const totalPrice = cart.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
