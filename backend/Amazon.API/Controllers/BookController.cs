@@ -34,7 +34,7 @@ namespace Amazon.API.Controllers
             .Take(numRecords)
             .ToList();  
 
-            //bookList.OrderBy
+            //bookList.OrderBy 
             //EF.Property<object>(bookList, orderBy);
 
             var stuff = (new // object to hold booklist and total number of books 
