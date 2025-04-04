@@ -29,7 +29,7 @@ const AdminBooksPage = () => {
       }
     };
     loadBooks();
-  }, [pageSize, pageNum]);
+  }, [pageSize, pageNum, DeleteBook]);
 
   const handleDelete = async (bookID: number) => {
     const confirmDelete = window.confirm(
@@ -39,7 +39,7 @@ const AdminBooksPage = () => {
     try {
       await DeleteBook(bookID);
       setBooks(Books.filter((b) => b.bookID !== bookID));
-      setOrder('bookID')
+      setOrder('bookID');
     } catch (error) {
       alert(`Error: ${error} \nFailed to delete book. Please try again.`);
     }
