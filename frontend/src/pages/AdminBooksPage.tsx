@@ -39,11 +39,14 @@ const AdminBooksPage = () => {
     try {
       await DeleteBook(bookID);
 
+      setBooks(Books.filter((b) => b.bookID !== bookID));
+      setOrder('bookID');
+
       // Ensure we fetch fresh data after deletion
-      fetchBooks(pageSize, pageNum, orderBy, []).then((data) => {
-        setBooks(data.books);
-        setTotalPages(Math.ceil(data.totalBooks / pageSize));
-      });
+      // fetchBooks(pageSize, pageNum, orderBy, []).then((data) => {
+      //   setBooks(data.books);
+      //   setTotalPages(Math.ceil(data.totalBooks / pageSize));
+      // });
     } catch (error) {
       alert(`Error: ${error} \nFailed to delete book. Please try again.`);
     }
